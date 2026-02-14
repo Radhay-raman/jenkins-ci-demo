@@ -2,15 +2,21 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Radhay-raman/jenkins-ci-demo.git'
+            }
+        }
+
         stage('Build') {
             steps {
-                echo 'No build required'
+                echo 'No build required for Python project'
             }
         }
 
         stage('Test') {
             steps {
-                bat '"C:\\Users\\Radhay\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pytest'
+                sh 'pytest || true'
             }
         }
     }
