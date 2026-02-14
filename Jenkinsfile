@@ -10,7 +10,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'python -m pytest'
+                bat '"C:\\Users\\Radhay\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m pytest'
             }
         }
     }
