@@ -8,9 +8,17 @@ pipeline {
             }
         }
 
+        stage('Setup Python Environment') {
+            steps {
+                bat 'python -m venv venv'
+                bat 'venv\\Scripts\\pip install --upgrade pip'
+                bat 'venv\\Scripts\\pip install pytest'
+            }
+        }
+
         stage('Test') {
             steps {
-                bat 'python -m pytest'
+                bat 'venv\\Scripts\\python -m pytest'
             }
         }
     }
